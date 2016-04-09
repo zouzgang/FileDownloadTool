@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "LPFileDownloadManager.h"
+#import "ViewController.h"
+#import "LPFileManager.h"
+#import "LPDownloadModel.h"
 
 @interface AppDelegate ()
 
@@ -16,9 +20,39 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
+    self.window.rootViewController = navi;
+    [self.window makeKeyAndVisible];
+    
+    [[LPFileDownloadManager sharedFileDownloadManager] startAllDownload];
+    
+    NSSetUncaughtExceptionHandler (&UncaughtExceptionHandler);
     return YES;
 }
+
+void UncaughtExceptionHandler(NSException *exception) {
+    //存储崩溃数据
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSMutableArray *models = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithFile:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingString:kModelKey]];
+        for (LPDownloadModel *model in models) {
+            if (model.downloadState != FileDownloadStateFinish &&
+                model.downloadState != FileDownloadStateSuspending) {
+//                [[LPFileDownloadManager sharedFileDownloadManager] suspendDownloadWithModel:model];
+                model.downloadState = FileDownloadStateSuspending;
+                [model updateItem];
+            }
+        }        
+    });
+
+    NSArray *arr = [exception callStackSymbols];//得到当前调用栈信息
+    NSString *reason = [exception reason];//非常重要，就是崩溃的原因
+    NSString *name = [exception name];//异常类型
+    
+    NSLog(@"exception type : %@ \n crash reason : %@ \n call stack info : %@", name, reason, arr);
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -26,8 +60,18 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSMutableArray *models = [LPFileManager getDataAtFilePath:kModelKey];
+        for (LPDownloadModel *model in models) {
+            if (model.downloadState != FileDownloadStateFinish &&
+                model.downloadState != FileDownloadStateSuspending) {
+                [[LPFileDownloadManager sharedFileDownloadManager] suspendDownloadWithModel:model];
+//                downloadModel.downloadState = FileDownloadStateSuspending;
+            }
+        }
+    });
+
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

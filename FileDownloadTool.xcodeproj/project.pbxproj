@@ -15,6 +15,14 @@
 		49806E731CB637AE00784188 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49806E711CB637AE00784188 /* LaunchScreen.storyboard */; };
 		49806E7E1CB637AE00784188 /* FileDownloadToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49806E7D1CB637AE00784188 /* FileDownloadToolTests.m */; };
 		49806E891CB637AE00784188 /* FileDownloadToolUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49806E881CB637AE00784188 /* FileDownloadToolUITests.m */; };
+		49806E981CB6381500784188 /* LPFileDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49806E971CB6381500784188 /* LPFileDownloadOperation.m */; };
+		49806E9C1CB6384D00784188 /* LPDownloadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49806E9B1CB6384D00784188 /* LPDownloadCell.m */; };
+		49806EA01CB63A6D00784188 /* LPFileDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49806E9F1CB63A6D00784188 /* LPFileDownloadManager.m */; };
+		49806EA31CB65B6E00784188 /* LPDownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49806EA21CB65B6E00784188 /* LPDownloadModel.m */; };
+		49806EA71CB6652500784188 /* LPDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49806EA61CB6652500784188 /* LPDownloadViewController.m */; };
+		49806EAA1CB66DDD00784188 /* LPFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49806EA91CB66DDD00784188 /* LPFileManager.m */; };
+		49806EAD1CB8CDFD00784188 /* CrashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49806EAC1CB8CDFD00784188 /* CrashViewController.m */; };
+		A418BE9966BD5DD34B51A305 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A81FAB1A0E15F9F276FA645 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A81FAB1A0E15F9F276FA645 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		49806E601CB637AD00784188 /* FileDownloadTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileDownloadTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49806E641CB637AD00784188 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49806E661CB637AD00784188 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +60,22 @@
 		49806E841CB637AE00784188 /* FileDownloadToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FileDownloadToolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49806E881CB637AE00784188 /* FileDownloadToolUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileDownloadToolUITests.m; sourceTree = "<group>"; };
 		49806E8A1CB637AE00784188 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49806E961CB6381500784188 /* LPFileDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPFileDownloadOperation.h; path = FileDownload/LPFileDownloadOperation.h; sourceTree = "<group>"; };
+		49806E971CB6381500784188 /* LPFileDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LPFileDownloadOperation.m; path = FileDownload/LPFileDownloadOperation.m; sourceTree = "<group>"; };
+		49806E9A1CB6384D00784188 /* LPDownloadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPDownloadCell.h; path = View/LPDownloadCell.h; sourceTree = "<group>"; };
+		49806E9B1CB6384D00784188 /* LPDownloadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LPDownloadCell.m; path = View/LPDownloadCell.m; sourceTree = "<group>"; };
+		49806E9E1CB63A6D00784188 /* LPFileDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPFileDownloadManager.h; path = FileDownload/LPFileDownloadManager.h; sourceTree = "<group>"; };
+		49806E9F1CB63A6D00784188 /* LPFileDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LPFileDownloadManager.m; path = FileDownload/LPFileDownloadManager.m; sourceTree = "<group>"; };
+		49806EA11CB65B6E00784188 /* LPDownloadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPDownloadModel.h; path = Model/LPDownloadModel.h; sourceTree = "<group>"; };
+		49806EA21CB65B6E00784188 /* LPDownloadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LPDownloadModel.m; path = Model/LPDownloadModel.m; sourceTree = "<group>"; };
+		49806EA51CB6652500784188 /* LPDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPDownloadViewController.h; sourceTree = "<group>"; };
+		49806EA61CB6652500784188 /* LPDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPDownloadViewController.m; sourceTree = "<group>"; };
+		49806EA81CB66DDD00784188 /* LPFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LPFileManager.h; path = FileDownload/LPFileManager.h; sourceTree = "<group>"; };
+		49806EA91CB66DDD00784188 /* LPFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LPFileManager.m; path = FileDownload/LPFileManager.m; sourceTree = "<group>"; };
+		49806EAB1CB8CDFD00784188 /* CrashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashViewController.h; sourceTree = "<group>"; };
+		49806EAC1CB8CDFD00784188 /* CrashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashViewController.m; sourceTree = "<group>"; };
+		B8CA7DA5BDA994CC414B67ED /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DFE0FBE274EEFF60191CD73B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A418BE9966BD5DD34B51A305 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48FEBBACEF79AB523F53616E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A81FAB1A0E15F9F276FA645 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		49806E571CB637AD00784188 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +119,8 @@
 				49806E7C1CB637AE00784188 /* FileDownloadToolTests */,
 				49806E871CB637AE00784188 /* FileDownloadToolUITests */,
 				49806E611CB637AD00784188 /* Products */,
+				EC76EB04FFAC1B515299AFBA /* Pods */,
+				48FEBBACEF79AB523F53616E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +141,13 @@
 				49806E671CB637AD00784188 /* AppDelegate.m */,
 				49806E691CB637AD00784188 /* ViewController.h */,
 				49806E6A1CB637AE00784188 /* ViewController.m */,
+				49806EA51CB6652500784188 /* LPDownloadViewController.h */,
+				49806EA61CB6652500784188 /* LPDownloadViewController.m */,
+				49806EAB1CB8CDFD00784188 /* CrashViewController.h */,
+				49806EAC1CB8CDFD00784188 /* CrashViewController.m */,
+				49806E9D1CB6385100784188 /* View */,
+				49806EA41CB65B7200784188 /* Model */,
+				49806E991CB6381900784188 /* FileDownload */,
 				49806E6C1CB637AE00784188 /* Main.storyboard */,
 				49806E6F1CB637AE00784188 /* Assets.xcassets */,
 				49806E711CB637AE00784188 /* LaunchScreen.storyboard */,
@@ -140,6 +183,46 @@
 			path = FileDownloadToolUITests;
 			sourceTree = "<group>";
 		};
+		49806E991CB6381900784188 /* FileDownload */ = {
+			isa = PBXGroup;
+			children = (
+				49806E961CB6381500784188 /* LPFileDownloadOperation.h */,
+				49806E971CB6381500784188 /* LPFileDownloadOperation.m */,
+				49806E9E1CB63A6D00784188 /* LPFileDownloadManager.h */,
+				49806E9F1CB63A6D00784188 /* LPFileDownloadManager.m */,
+				49806EA81CB66DDD00784188 /* LPFileManager.h */,
+				49806EA91CB66DDD00784188 /* LPFileManager.m */,
+			);
+			name = FileDownload;
+			sourceTree = "<group>";
+		};
+		49806E9D1CB6385100784188 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49806E9A1CB6384D00784188 /* LPDownloadCell.h */,
+				49806E9B1CB6384D00784188 /* LPDownloadCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		49806EA41CB65B7200784188 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49806EA11CB65B6E00784188 /* LPDownloadModel.h */,
+				49806EA21CB65B6E00784188 /* LPDownloadModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EC76EB04FFAC1B515299AFBA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B8CA7DA5BDA994CC414B67ED /* Pods.debug.xcconfig */,
+				DFE0FBE274EEFF60191CD73B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +230,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49806E8D1CB637AE00784188 /* Build configuration list for PBXNativeTarget "FileDownloadTool" */;
 			buildPhases = (
+				4DCF058E1D94538C5084985D /* Check Pods Manifest.lock */,
 				49806E5C1CB637AD00784188 /* Sources */,
 				49806E5D1CB637AD00784188 /* Frameworks */,
 				49806E5E1CB637AD00784188 /* Resources */,
+				CFD6F38B291EF01F8F406F5E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,14 +350,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4DCF058E1D94538C5084985D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CFD6F38B291EF01F8F406F5E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		49806E5C1CB637AD00784188 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49806EAD1CB8CDFD00784188 /* CrashViewController.m in Sources */,
+				49806EA71CB6652500784188 /* LPDownloadViewController.m in Sources */,
+				49806EA31CB65B6E00784188 /* LPDownloadModel.m in Sources */,
 				49806E6B1CB637AE00784188 /* ViewController.m in Sources */,
+				49806E981CB6381500784188 /* LPFileDownloadOperation.m in Sources */,
+				49806EAA1CB66DDD00784188 /* LPFileManager.m in Sources */,
+				49806E9C1CB6384D00784188 /* LPDownloadCell.m in Sources */,
 				49806E681CB637AD00784188 /* AppDelegate.m in Sources */,
 				49806E651CB637AD00784188 /* main.m in Sources */,
+				49806EA01CB63A6D00784188 /* LPFileDownloadManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +536,7 @@
 		};
 		49806E8E1CB637AE00784188 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8CA7DA5BDA994CC414B67ED /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FileDownloadTool/Info.plist;
@@ -422,6 +548,7 @@
 		};
 		49806E8F1CB637AE00784188 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFE0FBE274EEFF60191CD73B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FileDownloadTool/Info.plist;
@@ -496,6 +623,7 @@
 				49806E8F1CB637AE00784188 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49806E901CB637AE00784188 /* Build configuration list for PBXNativeTarget "FileDownloadToolTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +632,7 @@
 				49806E921CB637AE00784188 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49806E931CB637AE00784188 /* Build configuration list for PBXNativeTarget "FileDownloadToolUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +641,7 @@
 				49806E951CB637AE00784188 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
