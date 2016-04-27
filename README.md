@@ -1,6 +1,7 @@
 # FileDownloadTool
 1.use NSURLSession to realize the download  
 2.can strat, suspend, restart the download
+
 3.Use LPFileDownloadManager to manager your download
 
 
