@@ -1,6 +1,8 @@
 # FileDownloadTool
-1.use NSURLSession to realize the download  
+1.use NSURLSession to realize the download
+
 2.can strat, suspend, restart the download
+
 3.Use LPFileDownloadManager to manager your download
 
 
@@ -16,6 +18,7 @@ How to use？
 
 
 3.Realize LPFileDownloadManagerDelegate 
+
   //开始下载
 - (void)fileDownloadManagerStartDownload:(LPFileDownloadOperation *)downloadOperation;
 
@@ -28,5 +31,16 @@ How to use？
 
 
 4.add your model to the LPFileDownloadManagerstart to downloading a file
-    LPDownloadModel <LPFileDownloadProtocal>*downloadModel = [[LPDownloadModel alloc] initModelWithFieldID:[NSString stringWithFormat:@"%lu",sender.tag] fileName:[NSString stringWithFormat:@"name%lu",sender.tag] fileURL:url];
-    [[LPFileDownloadManager sharedFileDownloadManager] addDownloadWithModel:downloadModel];
+
+添加一个下载
+    LPDownloadModel <LPFileDownloadProtocal>*downloadModel = [LPDownloadModel new];
+
+[[LPFileDownloadManager sharedFileDownloadManager] addDownloadWithModel:downloadModel];
+
+暂停下载
+
+  [[LPFileDownloadManager sharedFileDownloadManager] suspendDownloadWithModel:downModel];
+
+恢复下载
+
+ [[LPFileDownloadManager sharedFileDownloadManager] recoverDownloadWithModel:downModel];
