@@ -106,27 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FileDownloadTool/FileDownload/LPFileDownloadOperation.m"
-            timestampString = "481951815.700564"
+            timestampString = "483441467.808021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "-URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FileDownloadTool/FileDownload/LPFileDownloadOperation.m"
-            timestampString = "481951815.700564"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "-calculateDownloadSpeed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,28 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FileDownloadTool/FileDownload/LPFileDownloadOperation.m"
-            timestampString = "481951815.700564"
+            timestampString = "483441467.808021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "-calculateDownloadSpeed:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FileDownloadTool/FileDownload/LPFileDownloadOperation.m"
-            timestampString = "481951815.700564"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "-URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -169,13 +137,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FileDownloadTool/View/LPDownloadCell.m"
-            timestampString = "481951815.700564"
+            filePath = "FileDownloadTool/FileDownload/LPFileDownloadOperation.m"
+            timestampString = "483441467.808021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "-refresh"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "-URLSession:task:didCompleteWithError:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
