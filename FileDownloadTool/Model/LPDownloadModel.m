@@ -14,7 +14,7 @@
 @end
 
 @implementation LPDownloadModel
-@synthesize fileName = _fileName, fileURL = _fileURL, fileID = _fileID, directoryPath = _directoryPath, downloadState = _downloadState, resumeData = _resumeData, progress = _progress, locationURL = _locationURL;
+@synthesize fileName = _fileName, fileURL = _fileURL, fileID = _fileID, directoryPath = _directoryPath, downloadState = _downloadState, resumeData = _resumeData, progress = _progress, locationURL = _locationURL, downloadSpeed = _downloadSpeed, fileSize = _fileSize;
 
 - (id<LPFileDownloadProtocal>)initModelWithFieldID:(NSString *)fieldID fileName:(NSString *)fileName fileURL:(NSString *)fileURL {
     self = [super init];
@@ -35,10 +35,10 @@
         _fileID = [aDecoder decodeObjectForKey:@"fileId"];
         self.fileName = [aDecoder decodeObjectForKey:@"fileName"];
         self.fileURL = [aDecoder decodeObjectForKey:@"fileUrl"];
+        self.fileSize = [aDecoder decodeObjectForKey:@"fileSize"];
 //        self.totalSize = [aDecoder decodeObjectForKey:@"totalSize"];
 //        self.downloadSize = [aDecoder decodeObjectForKey:@"downloadSize"];
-//        self.downloadSpeed = [aDecoder decodeObjectForKey:@"downloadSpeed"];
-//        self.directoryPath = [aDecoder decodeObjectForKey:@"directoryPath"];
+        self.downloadSpeed = [aDecoder decodeObjectForKey:@"downloadSpeed"];
         self.progress = [aDecoder decodeObjectForKey:@"progress"];
         self.downloadState = ((NSNumber *)[aDecoder decodeObjectForKey:@"downloadState"]).integerValue;
         self.locationURL = [aDecoder decodeObjectForKey:@"locationURL"];
@@ -51,10 +51,10 @@
     [aCoder encodeObject:self.fileID forKey:@"fileId"];
     [aCoder encodeObject:self.fileName forKey:@"fileName"];
     [aCoder encodeObject:self.fileURL forKey:@"fileUrl"];
+    [aCoder encodeObject:self.fileSize forKey:@"fileSize"];
 //    [aCoder encodeObject:self.totalSize forKey:@"totalSize"];
 //    [aCoder encodeObject:self.downloadSize forKey:@"downloadSize"];
-//    [aCoder encodeObject:self.downloadSpeed forKey:@"downloadSpeed"];
-//    [aCoder encodeObject:self.directoryPath forKey:@"directoryPath"];
+    [aCoder encodeObject:self.downloadSpeed forKey:@"downloadSpeed"];
     [aCoder encodeObject:self.progress forKey:@"progress"];
     [aCoder encodeObject:@(self.downloadState) forKey:@"downloadState"];
     [aCoder encodeObject:self.locationURL forKey:@"locationURL"];
@@ -97,8 +97,19 @@
     return arrayM.copy;
 }
 
-
-
-
-
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

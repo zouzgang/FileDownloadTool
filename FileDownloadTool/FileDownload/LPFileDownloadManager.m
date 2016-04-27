@@ -45,13 +45,6 @@
 #pragma mark - Public Methods
 - (void)addDownloadWithModel:(id<LPFileDownloadProtocal>)downloadModel {
     LPFileDownloadOperation *fileDownload = [[LPFileDownloadOperation alloc] initWithModel:downloadModel delegate:self];
-    if ([downloadModel exitItem]) {
-        downloadModel.downloadState = FileDownloadStateDownloading;
-        [downloadModel updateItem];
-    } else {
-        downloadModel.downloadState = FileDownloadStateDownloading;
-        [downloadModel addItem];
-    }
     [_downloadQueue addOperation:fileDownload];
 }
 
@@ -65,10 +58,7 @@
 }
 
 - (void)recoverDownloadWithModel:(id<LPFileDownloadProtocal>)downloadModel {
-    downloadModel.downloadState = FileDownloadStateDownloading;
-    [downloadModel updateItem];
     LPFileDownloadOperation *fileDownload = [[LPFileDownloadOperation alloc] initWithModel:downloadModel delegate:self];
-    
     [_downloadQueue addOperation:fileDownload];
 }
 
@@ -127,8 +117,8 @@
 
 - (void)fileDownloadOperationUpdate:(LPFileDownloadOperation *)downloadOperation didReceiveData:(uint64_t)receiveLength progress:(NSString *)progress downloadSpeed:(NSString *)downloadSpeed {
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (_delegate && [_delegate respondsToSelector:@selector(fileDownloadManagerUpdateProgress:didReceiveData:progress:)]) {
-            [_delegate fileDownloadManagerUpdateProgress:downloadOperation didReceiveData:receiveLength progress:progress];
+        if (_delegate && [_delegate respondsToSelector:@selector(fileDownloadManagerUpdateProgress:didReceiveData:progress:downloadSpeed:)]) {
+            [_delegate fileDownloadManagerUpdateProgress:downloadOperation didReceiveData:receiveLength progress:progress downloadSpeed:downloadSpeed];
         }
     });
 }

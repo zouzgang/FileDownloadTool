@@ -31,7 +31,6 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    //    [_tableView registerClass:[LPDownloadCell class] forCellReuseIdentifier:[LPDownloadCell cellReuseIdentifier]];
     [self.view addSubview:_tableView];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"next" style:UIBarButtonItemStylePlain target:self action:@selector(didRightButtonClick)];
@@ -72,7 +71,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -170,22 +169,23 @@
     } else {
         downloadCell.downloadModel.downloadState = FileDownloadStateFail;
     }
-    [downloadCell refresh];
+//    [downloadCell refresh];
 }
 
-- (void)fileDownloadManagerUpdateProgress:(LPFileDownloadOperation *)downloadOperation didReceiveData:(uint64_t)receiveLength progress:(NSString *)progress {
+- (void)fileDownloadManagerUpdateProgress:(LPFileDownloadOperation *)downloadOperation didReceiveData:(uint64_t)receiveLength progress:(NSString *)progress downloadSpeed:(NSString *)downloadSpeed{
     LPDownloadCell *downloadCell = [self getTargetCellWithFileId:downloadOperation.fileID];
     downloadCell.downloadModel.downloadState = FileDownloadStateDownloading;
     downloadCell.downloadModel.progress = progress;
+    downloadCell.downloadModel.downloadSpeed = downloadSpeed;
     
-    [downloadCell refresh];
+//    [downloadCell refresh];
 }
 
 - (void)fileDownloadManagerStartDownload:(LPFileDownloadOperation *)downloadOperation {
     LPDownloadCell *downloadCell = [self getTargetCellWithFileId:downloadOperation.fileID];
     downloadCell.downloadModel.downloadState = FileDownloadStateWaiting;
     
-    [downloadCell refresh];
+//    [downloadCell refresh];
 }
 
 

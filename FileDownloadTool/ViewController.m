@@ -140,10 +140,10 @@
         url = @"http://mw5.dwstatic.com/1/3/1528/133489-99-1436409822.mp4";
         sender.backgroundColor = [UIColor lightGrayColor];
     } else if (sender.tag == 4) {
-        url = @"http://mw5.dwstatic.com/1/3/1528/133489-99-1436409822.mp4";
+        url = @"https://codeload.github.com/google/material-design-icons/zip/master";
         sender.backgroundColor = [UIColor lightGrayColor];
     } else if (sender.tag == 5) {
-        url = @"http://mw5.dwstatic.com/1/3/1528/133489-99-1436409822.mp4";
+        url = @"http://7xrwrm.com1.z0.glb.clouddn.com/Multithreading.pdf";
         sender.backgroundColor = [UIColor lightGrayColor];
     }
     

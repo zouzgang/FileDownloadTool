@@ -28,8 +28,12 @@ typedef NS_ENUM(NSInteger, FileDownloadState){
 @property (nonatomic, strong) NSURL *locationURL;
 @property (nonatomic, strong) NSData *resumeData;
 @property (nonatomic, copy) NSString *progress;
+@property (nonatomic, copy) NSString *downloadSpeed;
+@property (nonatomic, copy) NSString *fileSize;
 @property (nonatomic, assign) FileDownloadState downloadState;
 
+
+@optional
 - (void)synchronizeModels;
 - (void)addItem;
 - (void)removeItem;
@@ -69,9 +73,6 @@ typedef NS_ENUM(NSInteger, FileDownloadOperationState){
 - (id)initWithModel:(id<LPFileDownloadProtocal>)downloadModel delegate:(id<LPFileDownloadOperationDelegate>)delegate;
 
 - (void)cancelDownloadIfDeleteFile:(BOOL)deleteFile;
-
-- (void)recoverDownload;
-
 
 @end
 
