@@ -75,7 +75,7 @@ const NSTimeInterval kCalculateSpeedTime = 2;
         [_delegate fileDownloadOperationStart:self downloadComplete:YES];
     }
     NSMutableURLRequest *fileRequest = [[NSMutableURLRequest alloc] initWithURL:_downloadURL];
-    _URLSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    _URLSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue new]];
     if (_resumeData) {
         _downloadTask = [_URLSession downloadTaskWithResumeData:_resumeData];
     } else {
@@ -116,13 +116,14 @@ const NSTimeInterval kCalculateSpeedTime = 2;
 }
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
+    if (self.isCancelled) {
+        [self finishOperation];
+    }
+    
     NSURLResponse *response = downloadTask.response;
     NSError *error = nil;
-    if (!_fileSize) {
-        _fileSize = [self calculateFileSize:totalBytesExpectedToWrite];
-        _downloadModel.fileSize = _fileSize;
-        [_downloadModel updateItem];
-    }
+    
+
     _receivedDataLength = totalBytesWritten;
     _timerReceivedDataLength += bytesWritten;
     _expectedDataLength = totalBytesExpectedToWrite;
@@ -137,8 +138,16 @@ const NSTimeInterval kCalculateSpeedTime = 2;
         error = [[NSError alloc] initWithDomain:NSURLErrorDomain code:3 userInfo:userInfo];
     }
     if (!error) {
+        if (!_fileSize) {
+            _fileSize = [self calculateFileSize:totalBytesExpectedToWrite];
+            _downloadModel.fileSize = _fileSize;
+            [_downloadModel updateItem];
+        }
+        
+        //存在多线程读取问题   todo
         _timer = [NSTimer scheduledTimerWithTimeInterval:kCalculateSpeedTime target:self selector:@selector(calculateDownloadSpeed:) userInfo:nil repeats:YES];
         [_timer fire];
+        
         if (_delegate && [_delegate respondsToSelector:@selector(fileDownloadOperationUpdate:didReceiveData:progress:downloadSpeed:)]) {
             [_delegate fileDownloadOperationUpdate:self didReceiveData:bytesWritten progress:_downloadProgress downloadSpeed:_downloadSpeed];
         }
@@ -155,7 +164,18 @@ const NSTimeInterval kCalculateSpeedTime = 2;
 
 #pragma mark - NSURLSessionDelegate
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
+    [self finishOperation];
     
+    if (error) {
+        _downloadModel.resumeData = error.userInfo[NSURLSessionDownloadTaskResumeData];
+        //todo
+        _downloadModel.downloadState = FileDownloadStateSuspending; //FileDownloadStateFail
+        NSLog(@"-----------------------");
+        [_downloadModel updateItem];
+//        if (_delegate && [_delegate respondsToSelector:@selector(fileDownloadFinish:onSuccess:error:didFinishDownloadingToURL:)]) {
+//            [_delegate fileDownloadFinish:self onSuccess:NO error:error didFinishDownloadingToURL:nil];
+//        }
+    }
 }
 
 
@@ -240,16 +260,6 @@ const NSTimeInterval kCalculateSpeedTime = 2;
 
 
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
  
  

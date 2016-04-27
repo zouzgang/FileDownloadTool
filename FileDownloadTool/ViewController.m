@@ -170,7 +170,7 @@
 #pragma mark - LPFileDownloadManagerDelegate
 
 - (void)fileDownloadManagerFinishDownload:(LPFileDownloadOperation *)downloadOperation onSuccess:(BOOL)downloadSucces error:(NSError *)error didFinishDownloadingToURL:(NSURL *)location{
-    NSLog(@"%s--finish",__func__);
+//    NSLog(@"%s--finish",__func__);
 }
 
 - (void)fileDownloadManagerUpdateProgress:(LPFileDownloadOperation *)downloadOperation didReceiveData:(uint64_t)receiveLength progress:(NSString *)progress {
@@ -178,7 +178,7 @@
 }
 
 - (void)fileDownloadManagerStartDownload:(LPFileDownloadOperation *)downloadOperation {
-    NSLog(@"%s----start",__func__);
+//    NSLog(@"%s----start",__func__);
 }
 
 

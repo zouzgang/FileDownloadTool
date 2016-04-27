@@ -35,7 +35,7 @@
 //添加到下载队列
 - (void)addDownloadWithModel:(id<LPFileDownloadProtocal>)downloadModel;
 
-//点击下载项 －》暂停
+//点击下载项 －》暂停 需要要求服务器的资源文件支持 断点下载
 - (void)suspendDownloadWithModel:(id<LPFileDownloadProtocal>)downloadModel;
 
 //点击暂停项 －》立即下载／添加到下载队列
